@@ -5,7 +5,7 @@
   become_user: root
   template:
     src: 'name.sudoers.d.j2'
-    dest: "/etc/sudoers.d/{{ item | regex_replace('[%.!@#$%^&*]') }}"
+    dest: "/etc/sudoers.d/{{ item | regex_replace('[%.!@#$%^&* *\\\\]') }}"
     owner: "root"
     group: "root"
     mode: 'u=r,o=,g='
